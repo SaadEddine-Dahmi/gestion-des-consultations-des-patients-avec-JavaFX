@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.patientmanagement.controller.AppointmentsController"
+      spacing="15.0">
+    
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+    
+    <HBox alignment="CENTER_LEFT" spacing="20.0">
+        <Label text="Appointment Management" style="-fx-font-weight: bold;">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <Region HBox.hgrow="ALWAYS" />
+        <DatePicker fx:id="datePicker" promptText="Filter by date" />
+        <ComboBox fx:id="statusComboBox" promptText="Filter by status" prefWidth="150.0" />
+        <Button fx:id="filterButton" text="Filter" onAction="#handleFilter" />
+        <Button fx:id="resetButton" text="Reset" onAction="#handleReset" />
+        <Button fx:id="addAppointmentButton" text="New Appointment" onAction="#handleAddAppointment" />
+    </HBox>
+    
+    <TableView fx:id="appointmentsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50.0" />
+            <TableColumn fx:id="dateColumn" text="Date" prefWidth="100.0" />
+            <TableColumn fx:id="timeColumn" text="Time" prefWidth="100.0" />
+            <TableColumn fx:id="patientColumn" text="Patient" prefWidth="150.0" />
+            <TableColumn fx:id="doctorColumn" text="Doctor" prefWidth="150.0" />
+            <TableColumn fx:id="reasonColumn" text="Reason" prefWidth="200.0" />
+            <TableColumn fx:id="statusColumn" text="Status" prefWidth="100.0" />
+            <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="150.0" />
+        </columns>
+    </TableView>
+    
+    <HBox spacing="10.0" alignment="CENTER_RIGHT">
+        <Label fx:id="totalAppointmentsLabel" text="Total Appointments: 0" />
+    </HBox>
+</VBox>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.patientmanagement.controller.PatientDialogController"
+      spacing="15.0">
+    
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+    
+    <Label fx:id="titleLabel" text="Add New Patient" style="-fx-font-weight: bold;">
+        <font>
+            <Font size="18.0"/>
+        </font>
+    </Label>
+    
+    <GridPane hgap="10" vgap="10">
+        <padding>
+            <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+        </padding>
+        
+        <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="firstNameField" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="200.0" />
+        
+        <Label text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="200.0" />
+        
+        <Label text="Date of Birth:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <DatePicker fx:id="dobPicker" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="200.0" />
+        
+        <Label text="Gender:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <ComboBox fx:id="genderComboBox" GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="200.0" />
+        
+        <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <TextArea fx:id="addressArea" GridPane.columnIndex="1" GridPane.rowIndex="4" prefWidth="200.0" prefHeight="60.0" wrapText="true" />
+        
+        <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="5" prefWidth="200.0" />
+        
+        <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+        <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="6" prefWidth="200.0" />
+        
+        <Label text="Emergency Contact:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+        <TextField fx:id="emergencyContactField" GridPane.columnIndex="1" GridPane.rowIndex="7" prefWidth="200.0" />
+        
+        <Label text="Insurance Info:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+        <TextArea fx:id="insuranceInfoArea" GridPane.columnIndex="1" GridPane.rowIndex="8" prefWidth="200.0" prefHeight="60.0" wrapText="true" />
+    </GridPane>
+    
+    <HBox spacing="10.0" alignment="CENTER_RIGHT">
+        <Button fx:id="cancelButton" text="Cancel" onAction="#handleCancel" />
+        <Button fx:id="saveButton" text="Save" onAction="#handleSave" defaultButton="true" />
+    </HBox>
+</VBox>

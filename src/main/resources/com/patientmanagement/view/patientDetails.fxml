@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.patientmanagement.controller.PatientDetailsController"
+      spacing="15.0">
+    
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+    
+    <HBox alignment="CENTER_LEFT" spacing="20.0">
+        <Label fx:id="patientNameLabel" text="Patient Details" style="-fx-font-weight: bold;">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <Label fx:id="patientIdLabel" text="ID: " />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="editButton" text="Edit Patient" onAction="#handleEditPatient" />
+        <Button fx:id="closeButton" text="Close" onAction="#handleClose" />
+    </HBox>
+    
+    <TabPane tabClosingPolicy="UNAVAILABLE">
+        <Tab text="Personal Information">
+            <VBox spacing="15.0">
+                <padding>
+                    <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
+                </padding>
+                
+                <GridPane hgap="15" vgap="10">
+                    <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;" />
+                    <Label fx:id="firstNameLabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    
+                    <Label text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;" />
+                    <Label fx:id="lastNameLabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    
+                    <Label text="Date of Birth:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;" />
+                    <Label fx:id="dobLabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    
+                    <Label text="Age:" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-font-weight: bold;" />
+                    <Label fx:id="ageLabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    
+                    <Label text="Gender:" GridPane.columnIndex="0" GridPane.rowIndex="4" style="-fx-font-weight: bold;" />
+                    <Label fx:id="genderLabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    
+                    <Label text="Address:" GridPane.columnIndex="2" GridPane.rowIndex="0" style="-fx-font-weight: bold;" />
+                    <Label fx:id="addressLabel" text="" GridPane.columnIndex="3" GridPane.rowIndex="0" wrapText="true" />
+                    
+                    <Label text="Phone:" GridPane.columnIndex="2" GridPane.rowIndex="1" style="-fx-font-weight: bold;" />
+                    <Label fx:id="phoneLabel" text="" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                    
+                    <Label text="Email:" GridPane.columnIndex="2" GridPane.rowIndex="2" style="-fx-font-weight: bold;" />
+                    <Label fx:id="emailLabel" text="" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                    
+                    <Label text="Emergency Contact:" GridPane.columnIndex="2" GridPane.rowIndex="3" style="-fx-font-weight: bold;" />
+                    <Label fx:id="emergencyContactLabel" text="" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                    
+                    <Label text="Insurance Info:" GridPane.columnIndex="2" GridPane.rowIndex="4" style="-fx-font-weight: bold;" />
+                    <Label fx:id="insuranceInfoLabel" text="" GridPane.columnIndex="3" GridPane.rowIndex="4" wrapText="true" />
+                </GridPane>
+            </VBox>
+        </Tab>
+        
+        <Tab text="Appointments">
+            <VBox spacing="15.0">
+                <padding>
+                    <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
+                </padding>
+                
+                <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                    <Button fx:id="newAppointmentButton" text="New Appointment" onAction="#handleNewAppointment" />
+                </HBox>
+                
+                <TableView fx:id="appointmentsTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="appointmentDateColumn" text="Date" prefWidth="100.0" />
+                        <TableColumn fx:id="appointmentTimeColumn" text="Time" prefWidth="100.0" />
+                        <TableColumn fx:id="doctorColumn" text="Doctor" prefWidth="150.0" />
+                        <TableColumn fx:id="reasonColumn" text="Reason" prefWidth="200.0" />
+                        <TableColumn fx:id="statusColumn" text="Status" prefWidth="100.0" />
+                        <TableColumn fx:id="appointmentActionsColumn" text="Actions" prefWidth="150.0" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+        
+        <Tab text="Medical Records">
+            <VBox spacing="15.0">
+                <padding>
+                    <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
+                </padding>
+                
+                <TableView fx:id="medicalRecordsTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="recordDateColumn" text="Date" prefWidth="100.0" />
+                        <TableColumn fx:id="doctorNameColumn" text="Doctor" prefWidth="150.0" />
+                        <TableColumn fx:id="diagnosisColumn" text="Diagnosis" prefWidth="200.0" />
+                        <TableColumn fx:id="recordActionsColumn" text="Actions" prefWidth="150.0" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>
